@@ -52,7 +52,7 @@ extend Concerns::Findable
   
  def self.new_from_filename(filename)
   #binding.pry
-   new = filename.split(//).map(&:strip)
+   new = filename.split(/\s-\s/).map(&:strip)
    song = Song.find_or_create_by_name(new[1])
    song.artist = Artist.find_or_create_by_name(new[0])
    song.genre = Genre.find_or_create_by_name(new[2])
