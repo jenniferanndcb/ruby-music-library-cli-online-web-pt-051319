@@ -58,11 +58,11 @@ class MusicLibraryController
 
    def list_songs
     songs = []
-    i = 0
+    
     Song.all.each { |song| songs << song }
     songs_sorted = songs.sort { |e,f| e.name <=> f.name}
     songs_sorted.uniq.each { |song|
-      i += 1
+      
       puts "#{i}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     }
   end
